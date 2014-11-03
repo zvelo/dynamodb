@@ -1,0 +1,13 @@
+{
+    "github": {
+        "repo": "zvelo-dynamodb"
+    },
+    "pivotal_tracker": {
+        "project": {
+            "id": 1198000
+        }
+    },
+    "hipchat": {
+        "room": "928727"
+    }
+}
