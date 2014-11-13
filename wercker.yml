@@ -10,8 +10,10 @@ build:
                 make image
 
         # Save docker image
-        - zvelo/docker-save:
-          image: zvelo/zvelo-dynamodb
+        - script:
+            name: docker save
+            code: |
+              docker save zvelo/zvelo-dynamodb > ${WERCKER_OUTPUT_DIR}/zvelo-dynamodb.tar
         
     after-steps:
         - hipchat-notify:
