@@ -1,0 +1,24 @@
+[Unit]
+Description=zvelo dynamodb service
+Requires=docker.service etcd.service
+After=docker.service etcd.service
+
+[Service]
+User=core
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStartPre=/bin/bash -c "DOCKER_REGISTRY=$(/bin/etcdctl get /config/shared/docker/RegistryHost); \
+    DOCKER_IMAGE=$(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/ImageName); \
+    exec /usr/bin/docker pull $DOCKER_REGISTRY''$DOCKER_IMAGE"
+
+ExecStart=/bin/bash -c "DOCKER_REGISTRY=$(/bin/etcdctl get /config/shared/docker/RegistryHost); \
+    DOCKER_IMAGE=$(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/ImageName); \
+    exec /usr/bin/docker run --rm --name=%p-%i \
+    -p $(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/Port):$(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/Port) \
+    $DOCKER_REGISTRY''$DOCKER_IMAGE"
+ExecStartPost=/usr/bin/etcdctl set /domains/%p/%H:%i running  
+ExecStop=/usr/bin/docker stop %p-%i  
+ExecStopPost=/usr/bin/etcdctl rm /domains/%p/%H:%i
+
