@@ -4,9 +4,9 @@
 
 zvelo-dynamodb is a datastore service built from Amazon's DynamoDB Local, which is a small client-side database and server that mimics the DynamoDB service. DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
 
-Read more on Amazon's DynamoDB Local: [Developer's Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html)*
+Read more on Amazon's DynamoDB Local: [Developer's Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html)
 
-Read more on Amazon's DynamoDB: [Introduction to DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)*
+Read more on Amazon's DynamoDB: [Introduction to DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)
 
 ### To Run the Server
 
@@ -35,9 +35,9 @@ To run using fleet:
 
 In reference to Amazon's Development Guide, To use DynamoDB Local with an application program, you need to configure your client so that it can communicate with the DynamoDB Local endpoint. The way that you do this depends on what programming language and AWS software development kit (SDK) you are using.
 	
-	[Using the AWS SDK for Java](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AboutJava.html)*
-	[Using the AWS SDK for .NET](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSsdkForDotNet.html)*
-	[Using the AWS SDK for PHP](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)*
+[Using the AWS SDK for Java](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AboutJava.html)
+[Using the AWS SDK for .NET](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSsdkForDotNet.html)
+[Using the AWS SDK for PHP](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)
 
 
 DynamoDB Local is also bundled with a JavaSript Shell to help jump-start usage development of DynamoDB. 
