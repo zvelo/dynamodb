@@ -34,10 +34,10 @@ To run using fleet:
 ### Client Objects
 
 In reference to Amazon's Development Guide, To use DynamoDB Local with an application program, you need to configure your client so that it can communicate with the DynamoDB Local endpoint. The way that you do this depends on what programming language and AWS software development kit (SDK) you are using.
-	
-[Using the AWS SDK for Java](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AboutJava.html)
-[Using the AWS SDK for .NET](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSsdkForDotNet.html)
-[Using the AWS SDK for PHP](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)
+
+For Java: [Using the AWS SDK for Java](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AboutJava.html)
+For .Net: [Using the AWS SDK for .NET](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSsdkForDotNet.html)
+For  PHP: [Using the AWS SDK for PHP](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)
 
 
 DynamoDB Local is also bundled with a JavaSript Shell to help jump-start usage development of DynamoDB. 
