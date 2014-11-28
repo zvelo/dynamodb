@@ -1,7 +1,9 @@
 FROM ubuntu:trusty
 MAINTAINER Karen Joy Gacao  kgacao@zvelo.com
 
-RUN apt-get update && apt-get install -y curl wget default-jre
+RUN apt-get update \
+    && apt-get install -y curl wget default-jre \
+	&& apt-get autoremove -y
 
 RUN mkdir /app
 WORKDIR /app
