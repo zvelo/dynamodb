@@ -18,7 +18,5 @@ ExecStart=/bin/bash -c "DOCKER_REGISTRY=$(/bin/etcdctl get /config/shared/docker
     exec /usr/bin/docker run --rm --name=%p \
     -p $(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/Port):$(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/Port) \
     $DOCKER_REGISTRY''$DOCKER_IMAGE"
-ExecStartPost=/usr/bin/etcdctl set /domains/%p/%H:%i running  
 ExecStop=/usr/bin/docker stop %p  
-ExecStopPost=/usr/bin/etcdctl rm /domains/%p/%H:%i
 
