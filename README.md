@@ -43,11 +43,6 @@ For  PHP: [Using the AWS SDK for PHP](http://docs.aws.amazon.com/amazondynamodb/
 
 
 DynamoDB Local is also bundled with a JavaSript Shell to help jump-start usage development of DynamoDB. 
-You can access this in the following URL: http://localhost:8000/shell 
-
-
-
-
-
+You can access this in the following URL: `http://localhost:8000/shell`
 
 
