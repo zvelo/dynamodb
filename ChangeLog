@@ -1,0 +1,5 @@
+2014-12-04  Karl Dominguez <kdominguez@zvelo.com>
+
+  * Start feature "Awis-DynamoDB create function connect to db"
+  https://www.pivotaltracker.com/story/show/83908996
+  https://github.com/zvelo/zvelo-dynamodb/pull/6
