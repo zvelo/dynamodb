@@ -9,14 +9,12 @@ EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
-ExecStartPre=/bin/bash -c "DOCKER_REGISTRY=$(/bin/etcdctl get /config/shared/docker/RegistryHost); \
-    DOCKER_IMAGE=$(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/ImageName); \
-    exec /usr/bin/docker pull $DOCKER_REGISTRY''$DOCKER_IMAGE"
-
-ExecStart=/bin/bash -c "DOCKER_REGISTRY=$(/bin/etcdctl get /config/shared/docker/RegistryHost); \
-    DOCKER_IMAGE=$(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/ImageName); \
-    exec /usr/bin/docker run --rm --name=%p \
-    -p $(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/Port):$(/bin/etcdctl get /config/system/datastore/service/zvelo-dynamodb/Port) \
-    $DOCKER_REGISTRY''$DOCKER_IMAGE"
-ExecStop=/usr/bin/docker stop %p  
-
+#ExecStartPre=/usr/bin/docker pull zvelo/%p
+ExecStart=/usr/bin/docker run \
+  --rm \
+  --name=%p \
+  -p 8001 \
+  -v /home/core/data/%p:/data \
+  zvelo/%p
+ExecStop=/usr/bin/docker stop %p
+Restart=always

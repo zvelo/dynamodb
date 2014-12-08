@@ -1,11 +1,10 @@
 NAME=dynamodb
 DOCKER_IMAGE=zvelo/zvelo-$(NAME)
 
-all: build
-
-build:		
-	docker build -t $(DOCKER_IMAGE) .	
+all: image
 
 image: .image-stamp
 
-.image-stamp: build
+.image-stamp: Dockerfile
+	docker build -t $(DOCKER_IMAGE) .
+	touch .image-stamp

@@ -15,16 +15,6 @@ To run without parameters to see help:
 	docker run -i -t zvelo/zvelo-dynamodb
 ```
 
-To run with persistent data directory:
-```bash
-	docker run -d -p 8000:8000 zvelo/zvelo-dynamodb -port 8000
-```
-
-To run with data in-memory only:
-```bash
-	docker run -d -p 8000:8000 zvelo/zvelo-dynamodb -inMemory -port 8000
-```
-
 To run using fleet:
 ```bash
     fleetctl submit zvelo-dynamodb.service
@@ -41,8 +31,5 @@ For .Net: [Using the AWS SDK for .NET](http://docs.aws.amazon.com/amazondynamodb
 
 For  PHP: [Using the AWS SDK for PHP](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)
 
-
 DynamoDB Local is also bundled with a JavaSript Shell to help jump-start usage development of DynamoDB. 
 You can access this in the following URL: `http://localhost:8000/shell`
-
-
