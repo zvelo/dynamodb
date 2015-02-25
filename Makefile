@@ -5,6 +5,6 @@ all: image
 
 image: .image-stamp
 
-.image-stamp: Dockerfile
-	docker build -t $(DOCKER_IMAGE) .
+.image-stamp: Docker/Dockerfile
+	docker build -t $(DOCKER_IMAGE) ./Docker/
 	touch .image-stamp
