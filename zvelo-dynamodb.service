@@ -15,6 +15,10 @@ ExecStart=/usr/bin/docker run \
   --name=%p \
   -p 8001 \
   -v /home/core/data/%p:/data \
-  zvelo/%p
+  zvelo/%p \
+    -sharedDb
 ExecStop=/usr/bin/docker stop %p
 Restart=always
+
+[X-Fleet]
+MachineMetadata=%p=1
