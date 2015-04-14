@@ -27,13 +27,26 @@ $ fleetctl start zvelo-dynamodb.service
 
 This container is only intended for use in development. In development, it is technically available using service discovery (the default port is 8000). **HOWEVER**, in production, dynamodb will be accessed using an Amazon URI. To abstract these differences, the recommended approach is to rely on `envetcd`. By setting a global key in development as follows:
 
+The following keys should be set in etcd
 ```bash
-$ etcdctl set /config/global/dynamodb_uri 'dynamodb://172.17.8.101:8001'
+/config/global/aws/access-key
+/config/global/aws/disable-ssl
+/config/global/aws/endpoint
+/config/global/aws/region
+/config/global/aws/secret-access-key
+```
+Or as environment variables:
+```bash
+AWS_ACCESS_KEY=something
+AWS_DISABLE_SSL=true
+AWS_ENDPOINT=172.17.8.101:8001
+AWS_REGION=zvelo
+AWS_SECRET_ACCESS_KEY=something
 ```
 
-With this key set, using `envetcd`, any service in the development cluster will have the `$DYNAMODB_URI` variable set. Because the dynamodb local development tool is still available using service discovery, the hardcoded uri and port will work even if dynamodb is not running on that particular host (in this example `172.17.8.101`, also note that in development, the port `8001` is fixed and can be used reliably in the config value).
+With this key set, using `envetcd`, any service in the development cluster will have the variables set. Because the dynamodb local development tool is still available using service discovery, the hardcoded uri and port will work even if dynamodb is not running on that particular host (in this example `172.17.8.101`, also note that in development, the port `8001` is fixed and can be used reliably in the config value).
 
-This way, in production, services can still rely on the `$DYNAMODB_URI` variable existing even when dynamodb is not running within the cluster and available using service discovery.
+This way, in production, services can still rely on the variables existing even when dynamodb is not running within the cluster and available using service discovery.
 
 ## Client Objects
 
