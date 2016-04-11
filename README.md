@@ -1,7 +1,5 @@
 # dynamodb
 
-[![Circle CI](https://circleci.com/gh/zvelo/dynamodb.svg?style=svg&circle-token=65b93dcb49290d271efc8d63f47ee5c83d7ac15e)](https://circleci.com/gh/zvelo/dynamodb)
-
 dynamodb is a datastore service built from Amazon's DynamoDB Local, which is a small client-side database and server that mimics the DynamoDB service. DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
 
 Read more on Amazon's DynamoDB Local: [Developer's Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html)
