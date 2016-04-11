@@ -1,8 +1,8 @@
-# zvelo-dynamodb
+# dynamodb
 
-[![Circle CI](https://circleci.com/gh/zvelo/zvelo-dynamodb.svg?style=svg&circle-token=65b93dcb49290d271efc8d63f47ee5c83d7ac15e)](https://circleci.com/gh/zvelo/zvelo-dynamodb)
+[![Circle CI](https://circleci.com/gh/zvelo/dynamodb.svg?style=svg&circle-token=65b93dcb49290d271efc8d63f47ee5c83d7ac15e)](https://circleci.com/gh/zvelo/dynamodb)
 
-zvelo-dynamodb is a datastore service built from Amazon's DynamoDB Local, which is a small client-side database and server that mimics the DynamoDB service. DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
+dynamodb is a datastore service built from Amazon's DynamoDB Local, which is a small client-side database and server that mimics the DynamoDB service. DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
 
 Read more on Amazon's DynamoDB Local: [Developer's Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html)
 
@@ -13,14 +13,7 @@ Read more on Amazon's DynamoDB: [Introduction to DynamoDB](http://docs.aws.amazo
 To run without parameters to see help:
 
 ```bash
-$ docker run -i -t zvelo/zvelo-dynamodb
-```
-
-To run using fleet:
-
-```bash
-$ fleetctl submit zvelo-dynamodb.service
-$ fleetctl start zvelo-dynamodb.service
+$ docker run -it zvelo/dynamodb
 ```
 
 ## Notes for developers
@@ -28,6 +21,7 @@ $ fleetctl start zvelo-dynamodb.service
 This container is only intended for use in development. In development, it is technically available using service discovery (the default port is 8000). **HOWEVER**, in production, dynamodb will be accessed using an Amazon URI. To abstract these differences, the recommended approach is to rely on `envetcd`. By setting a global key in development as follows:
 
 The following keys should be set in etcd
+
 ```bash
 /config/global/aws/access-key
 /config/global/aws/disable-ssl
@@ -35,7 +29,9 @@ The following keys should be set in etcd
 /config/global/aws/region
 /config/global/aws/secret-access-key
 ```
+
 Or as environment variables:
+
 ```bash
 AWS_ACCESS_KEY=something
 AWS_DISABLE_SSL=true
@@ -58,5 +54,4 @@ For .Net: [Using the AWS SDK for .NET](http://docs.aws.amazon.com/amazondynamodb
 
 For  PHP: [Using the AWS SDK for PHP](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)
 
-DynamoDB Local is also bundled with a JavaSript Shell to help jump-start usage development of DynamoDB. 
-You can access this in the following URL: `http://localhost:8000/shell`
+DynamoDB Local is also bundled with a JavaSript Shell to help jump-start usage development of DynamoDB. You can access this in the following URL: `http://localhost:8000/shell`
