@@ -1,22 +1,11 @@
-FROM debian:wheezy
+FROM alpine:latest
 MAINTAINER Joshua Rubin <jrubin@zvelo.com>
-
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends curl default-jre \
-	&& apt-get autoremove -y \
-  && apt-get clean -y \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk --update add openjdk8-jre curl
 
 RUN mkdir /app
 WORKDIR /app
 
-ENV DYNAMODB_DOWNLOAD_URL http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest
-
-RUN curl -sSL "$DYNAMODB_DOWNLOAD_URL" -o dynamodb-local.tgz \
-  && tar -xzf dynamodb-local.tgz \
-  && rm dynamodb-local.tgz
+RUN curl -sSL https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz | tar -zx
 
 RUN mkdir /data
 WORKDIR /data
