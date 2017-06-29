@@ -11,4 +11,5 @@ RUN mkdir /data
 WORKDIR /data
 
 EXPOSE 8001
-ENTRYPOINT ["/usr/bin/java", "-Djava.library.path=/app/DynamoDBLocal_lib", "-jar", "/app/DynamoDBLocal.jar", "-dbPath", "/data", "-port", "8001"]
+ENTRYPOINT ["/usr/bin/java", "-Djava.library.path=/app/DynamoDBLocal_lib", "-jar", "/app/DynamoDBLocal.jar"]
+CMD ["-dbPath", "/data", "-port", "8001"]
